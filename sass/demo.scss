@@ -1,0 +1,46 @@
+// khai bao bien
+$bg-color: red;
+h1 {
+    background-color: $bg-color;
+}
+h2 {
+    background-color: $bg-color;
+}
+.sec1 {
+    h2 {
+        background-color: $bg-color;
+    }
+    button {
+        background-color: $bg-color;
+        &:hover {
+            background-color: blue;
+        }
+    }
+}
+.sec2 {
+    @extend .sec1;
+    color: chartreuse;
+    color: #000;
+}
+// mixin
+// ko co tham so truyen vao
+@mixin styleSection {
+    h2{
+        background-color: crimson;
+    }
+    button{
+        background-color:black;
+    }
+}
+.sec3{
+    @include styleSection();
+}
+@mixin styleSectionNew($backgroudColor,$color) {
+    h2{
+        background-color: $backgroudColor;
+        color: $color;
+    }
+}
+.sec4{
+    @include styleSectionNew(black,red);
+}
